@@ -39,13 +39,13 @@ functions:
   fetchItem:
     handler: src/fetchItem.handler
     events:
-      - http:
+      - httpApi:
           path: /items/{id}
           method: get
   updateItem:
     handler: src/updateItem.handler
     events:
-      - http:
+      - httpApi:
           path: /items/{id}
           method: put
 resources:
