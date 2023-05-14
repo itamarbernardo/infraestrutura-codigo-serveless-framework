@@ -15,37 +15,37 @@ provider:
                 - dynamodb:GetItem
                 - dynamodb:Scan
               Resource:
-                - arn:aws:dynamodb:us-east-1:167880115321:table/ItemTable
-
+                - arn:aws:dynamodb:us-east-1:896530927656:table/ItemTableNew
+                 
 functions:
   api:
     handler: src/index.handler
     events:
-      - httpApi:
+      - http:
           path: /
           method: get
   insertItem:
     handler: src/insertItem.handler
     events:
-      - httpApi:
+      - http:
           path: /item
           method: post
   fetchItems:
     handler: src/fetchItems.handler
     events:
-      - httpApi:
+      - http:
           path: /items
           method: get
   fetchItem:
     handler: src/fetchItem.handler
     events:
-      - httpApi:
+      - http:
           path: /items/{id}
           method: get
   updateItem:
     handler: src/updateItem.handler
     events:
-      - httpApi:
+      - http:
           path: /items/{id}
           method: put
 resources:
@@ -53,7 +53,7 @@ resources:
     ItemTableNew:
       Type: AWS::DynamoDB::Table
       Properties:
-          TableName: ItemTable
+          TableName: ItemTableNew
           BillingMode: PAY_PER_REQUEST
           AttributeDefinitions:
             - AttributeName: id
